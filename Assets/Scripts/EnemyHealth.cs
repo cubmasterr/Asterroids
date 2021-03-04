@@ -14,6 +14,7 @@ public class EnemyHealth : MonoBehaviour
         if (Health <= 0)
         {
             GameObject.Find("Player").GetComponent<PlayerHealth>().AddScore(scoreToAdd);
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
             animator.SetTrigger("Dead");
             DeathAudio.Play();
         }

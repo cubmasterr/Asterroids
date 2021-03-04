@@ -20,10 +20,10 @@ public class Asteroids : MonoBehaviour
     {
         if (Other.gameObject.tag == "Player" || Other.gameObject.layer == 8)
         {
-            if(Other.gameObject.GetComponent<PlayerHealth> ()!=null)
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            if (Other.gameObject.GetComponent<PlayerHealth> ()!=null)
             {
                 Other.gameObject.GetComponent<PlayerHealth>().RefuseHealth();//Refuse 1 health from player
-                
             }
                 if (!Islast && Other.gameObject.layer != 10)//check Is aible to spaun Asteroid's
                 {
@@ -41,11 +41,7 @@ public class Asteroids : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (gameObject.transform.position.y<=-20|| gameObject.transform.position.y >= 20)//Check distanse to destroy asteroids
-        {
-            Destroy(gameObject);
-        }
-        if (gameObject.transform.position.x <= -20 || gameObject.transform.position.x >= 20)
+        if (gameObject.transform.position.y<=-20|| gameObject.transform.position.y >= 20|| gameObject.transform.position.x <= -20 || gameObject.transform.position.x >= 20)//Check distanse to destroy asteroids
         {
             Destroy(gameObject);
         }

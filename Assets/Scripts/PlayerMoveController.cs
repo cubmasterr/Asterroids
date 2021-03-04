@@ -12,13 +12,7 @@ public class PlayerMoveController : MonoBehaviour
     }
     private void FixedUpdate()//make rottation and transform by inpyt values
     {
-        if (_vertical != 0)
-        {
             transform.Translate( _vertical * Vector3.up * playerSpeed * Time.fixedDeltaTime);
-        }
-         if (_horizontal != 0)
-        {
             transform.Rotate(_horizontal * Vector3.back * rottatitonSpeed * Time.fixedDeltaTime);
-        }
     }
 }
