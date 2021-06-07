@@ -43,6 +43,5 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         scoreText.text==_score.ToString();
-        Score.GetComponent<Text>().text =_score.ToString();
     }
 }
