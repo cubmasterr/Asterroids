@@ -42,6 +42,6 @@ public class PlayerHealth : MonoBehaviour
     }
     void Update()
     {
-        scoreText.text==_score.ToString();
+        scoreText.text=_score.ToString();
     }
 }
