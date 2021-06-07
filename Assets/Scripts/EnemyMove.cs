@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 public class EnemyMove : MonoBehaviour
 {
     [SerializeField] private float EnemySpeed;
@@ -11,6 +9,6 @@ public class EnemyMove : MonoBehaviour
     }
     void FixedUpdate()
     {
-        transform.position = Vector2.MoveTowards(transform.position, Target.position, EnemySpeed * Time.fixedDeltaTime);//move enemy to player
+        transform.position = Vector2.MoveTowards(transform.position, Target.position, EnemySpeed * Time.fixedDeltaTime);
     }
 }

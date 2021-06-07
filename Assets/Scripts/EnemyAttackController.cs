@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 public class EnemyAttackController : MonoBehaviour
 {
     [SerializeField] private float reloadTime;
@@ -12,7 +10,7 @@ public class EnemyAttackController : MonoBehaviour
         Instantiate(Bullet, transform.position, Quaternion.identity);
         ChangeShootDirection();
     }
-    private void ChangeShootDirection()//change vector of shoot point
+    private void ChangeShootDirection()
     {
         if (shootVector == new Vector3(0, -1, 0))
         {
@@ -25,7 +23,7 @@ public class EnemyAttackController : MonoBehaviour
     }
     void Update()
     {
-        if (_reloadTime <= 0)//Cheak relaod time
+        if (_reloadTime <= 0)
         {
             _reloadTime = reloadTime;
             Shoot();

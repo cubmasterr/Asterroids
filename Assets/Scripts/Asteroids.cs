@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
+﻿using UnityEngine;
 public class Asteroids : MonoBehaviour
 {
     [SerializeField] private GameObject SmallerAsteroid;
@@ -13,7 +10,7 @@ public class Asteroids : MonoBehaviour
     private void Start()
     {
         animator = gameObject.GetComponent<Animator>();
-        Vector3 randomVecror= new Vector3(0f, 0f, UnityEngine.Random.Range(0f, 360f));//rondomaise rotation of Asteroid's
+        Vector3 randomVecror= new Vector3(0f, 0f, UnityEngine.Random.Range(0f, 360f));
         transform.Rotate(randomVecror);
     }
     void OnCollisionEnter2D(Collision2D Other)
@@ -23,25 +20,25 @@ public class Asteroids : MonoBehaviour
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             if (Other.gameObject.GetComponent<PlayerHealth> ()!=null)
             {
-                Other.gameObject.GetComponent<PlayerHealth>().RefuseHealth();//Refuse 1 health from player
+                Other.gameObject.GetComponent<PlayerHealth>().RefuseHealth();
             }
-                if (!Islast && Other.gameObject.layer != 10)//check Is aible to spaun Asteroid's
+                if (!Islast && Other.gameObject.layer != 10)
                 {
                  SpaunAsteroids();
                 }
-            GameObject.Find("Player").GetComponent<PlayerHealth>().AddScore(scoreToAdd);//Add player score for distroyed asteroid
+            GameObject.Find("Player").GetComponent<PlayerHealth>().AddScore(scoreToAdd);
             animator.SetTrigger("Dead");
             deathAudio.Play();
         }
         }
-    private void SpaunAsteroids()//Spaun two new smal asteroid's
+    private void SpaunAsteroids()
     {
         Instantiate(SmallerAsteroid, gameObject.transform.position, Quaternion.identity);
         Instantiate(SmallerAsteroid, gameObject.transform.position + Vector3.one, Quaternion.identity);
     }
     private void FixedUpdate()
     {
-        if (gameObject.transform.position.y<=-20|| gameObject.transform.position.y >= 20|| gameObject.transform.position.x <= -20 || gameObject.transform.position.x >= 20)//Check distanse to destroy asteroids
+        if (gameObject.transform.position.y<=-20|| gameObject.transform.position.y >= 20|| gameObject.transform.position.x <= -20 || gameObject.transform.position.x >= 20)
         {
             Destroy(gameObject);
         }
