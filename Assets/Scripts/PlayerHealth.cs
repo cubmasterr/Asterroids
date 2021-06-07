@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private AudioSource DeathAudio;
     private int _score = 0;
     private int _health = 3;
+    private Text scoreText;
     public void AddScore(int value)
      {
         _score += value;
@@ -20,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
     }
     private void Start()
     {
+  scoreText=Score.GetComponent<Text>();
         for (int i = 0; i < _health; i++)
         {
             Health[i].SetActive(true);
@@ -40,6 +42,7 @@ public class PlayerHealth : MonoBehaviour
     }
     void Update()
     {
+        scoreText.text==_score.ToString();
         Score.GetComponent<Text>().text =_score.ToString();
     }
 }
